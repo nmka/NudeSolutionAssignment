@@ -10,12 +10,7 @@
         public int CategoryId { get; set; }
         public float Value { get; set; }
 
-        public Item( string name, int categoryId, float value) { 
-            Name = name; 
-            CategoryId = categoryId;
-            Value = value;
-        }
-
+        
         
     }
 }
