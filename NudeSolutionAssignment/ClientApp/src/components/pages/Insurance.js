@@ -10,26 +10,57 @@ const Insurance = () => {
 
     useEffect(() => {
         if (categories != null) return;
-        services.insuranceService.getAllCategories().then(response => {
+        services.insurance.getAllCategories().then(response => {
             setCategories(response);
-            console.log('response',response)
+            console.log('response', response)
         });
 
     })
-
-    const addItem = (item) => {
-        services.insuranceService.createItem(item).then(response => {
-            //setItems([...items, response]);
-        })
-
+    const calculateCategoryTotal = (category) => {
+        return category.items.reduce((sum, item) => sum + item.value, 0);
     }
 
-    return (<main>
-        
+    const calculateTotal = () => {
+        return categories?.reduce((sum, category) => sum + calculateCategoryTotal(category), 0);
+    }
+
+    const addItem = (item) => {
+        services.insurance.createItem(item).then(response => {
+            let newCategories = [...categories];
+            let targetCategory = newCategories.find(category => category.id === response.categoryId);
+            targetCategory.items.push(response);
+            setCategories([...newCategories]);
+
+            console.log('new', newCategories);
+            console.log('target', targetCategory);
+        });
+    }
+    const deleteItem = (toDeleteItem) => {
+        let newCategories = [...categories];
+        let targetCategory = newCategories.find(category => category.id === toDeleteItem.categoryId);
+        targetCategory.items = targetCategory.items.filter(item => item.id !== toDeleteItem.id);
+        setCategories([...newCategories]);
+
+        console.log('new',newCategories);
+        console.log('target',targetCategory);
+        //services.insurance.deleteItem(toDeleteItem).then(_ => {
+      
+        //}
+    }
+
+    return (<main className='insurance'>
+
         {categories != null ? <>
-            {categories.map((category) => <InsuranceCategory key={category.id} category={category}></InsuranceCategory>)}
-            <InsuranceItemForm addItem={addItem} categories={categories}></InsuranceItemForm>
-        </>:<div>Loading...</div>}
+            {categories.map((category) => <InsuranceCategory
+                deleteItem={deleteItem}
+                key={category.id}
+                category={category}
+                calculateCategoryTotal={calculateCategoryTotal}>
+            </InsuranceCategory>)}
+            <b> <span className='name'> Total </span> {calculateTotal()}$</b>
+            <hr></hr>
+            <InsuranceItemForm addItem={addItem} categories={categories} ></InsuranceItemForm>
+        </> : <div>Loading...</div>}
     </main>)
 }
 

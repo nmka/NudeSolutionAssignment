@@ -1,7 +1,7 @@
 import insuranceService from "./services/insurance-service"
 
 const services = {
-    insuranceService
+    insurance: insuranceService
 }
 
 export default services;

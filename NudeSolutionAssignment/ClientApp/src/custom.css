@@ -1,29 +1,47 @@
 /* Provide sufficient contrast against white background */
 a {
-  color: #0366d6;
+    color: #0366d6;
 }
 
 code {
-  color: #E01A76;
+    color: #E01A76;
 }
 
 .btn-primary {
-  color: #fff;
-  background-color: #1b6ec2;
-  border-color: #1861ac;
+    color: #fff;
+    background-color: #1b6ec2;
+    border-color: #1861ac;
 }
 
 .insurance-item {
     list-style-type: none;
-
+    border-bottom: 0.5px solid lightgray;
 }
 
-.insurance-category .name {
-    width: 300px;
+.insurance-item .value {
+    width: 20%;
     display: inline-block;
 }
+.insurance-category :last-child {
+    border-bottom: 0px;
+}
 
-.insurance-item .name {
-    width: 300px;
+.name {
+    min-width: 70%;
     display: inline-block;
+    overflow-x: hidden;
+}
+
+.clickable {
+    cursor: pointer;
+}
+
+.insurance-form {
+    display: grid;
+    grid-auto-flow: column;
+    grid-column-gap: 10px
+}
+
+.insurance {
+    max-width: 900px;
 }

@@ -5,7 +5,8 @@ const insuranceService = {
 
     createItem: (item) => {
         return api.post('/items', item)
-            .then( (response) => {
+            .then((response) => {
+                return response.data
             })
             .catch((error) => {
                 alert(error);
