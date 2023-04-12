@@ -4,11 +4,11 @@ namespace NudeSolutionAssignment.Services
 {
     public interface IItemService
     {
-        public List<Item> GetAll();
-        public Item? GetById(int id);
-        public Item? Create(Item item);
-        public void Update(Item item);
-        public void Delete(int id);
+        public Task<List<Item>> GetAll();
+        public Task<Item> GetById(int id);
+        public Task<Item> Create(Item item);
+        public Task<Item> Update(Item item);
+        public Task Delete(int id);
 
     }
 }

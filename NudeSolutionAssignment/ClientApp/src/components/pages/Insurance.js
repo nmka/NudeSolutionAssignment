@@ -1,6 +1,6 @@
 
 import React, { useState, useEffect } from 'react';
-import { createItem } from '../../api/services/insurance-service';
+import services from '../../api/index'
 import InsuranceItemForm from '../InsuranceItemForm';
 import InsuranceItemsList from '../InsuranceItemsList';
 
@@ -11,19 +11,17 @@ const Insurance = () => {
 
     useEffect(() => {
         if (items != null) return;
-        fetch('item')
-            .then((result) => {
-                return result.json();
-            })
-            .then(data => {
-                setItems(data);
-            })
+        services.insuranceService.getAllItems().then(response => {
+            setItems(response);
+        });
+        
     })
 
     const addItem = (item) => {
-        createItem(item).then(data => {
-            setItems([...items, data]);
+        services.insuranceService.createItem(item).then(response => {
+            setItems([...items, response]);
         })
+        
     }
 
     return (<main>

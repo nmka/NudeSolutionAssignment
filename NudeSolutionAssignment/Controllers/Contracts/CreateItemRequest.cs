@@ -3,6 +3,6 @@
     public record CreateItemRequest(
         string name,
         int categoryId,
-        float amount
+        float value
     );
 }

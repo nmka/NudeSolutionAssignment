@@ -1,4 +1,5 @@
 using Microsoft.EntityFrameworkCore;
+using NudeSolutionAssignment.Controllers;
 using NudeSolutionAssignment.Persistence;
 using NudeSolutionAssignment.Services;
 
@@ -9,7 +10,8 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllersWithViews();
 builder.Services.AddDbContext<InsuranceContext>();
 
-ConfigureServices(builder.Services);
+builder.Services.AddScoped<IItemService, ItemService>();
+builder.Services.AddScoped<ICategoryService, CategoryService>();
 
 var app = builder.Build();
 
@@ -32,11 +34,3 @@ app.MapControllerRoute(
 app.MapFallbackToFile("index.html"); ;
 
 app.Run();
-
-
-void ConfigureServices(IServiceCollection services)
-{
-    services.AddTransient<IItemService, ItemService>();
-    services.AddTransient<ICategoryService, CategoryService>();
-
-}

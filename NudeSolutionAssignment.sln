@@ -5,12 +5,6 @@ VisualStudioVersion = 17.5.33516.290
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NudeSolutionAssignment", "NudeSolutionAssignment\NudeSolutionAssignment.csproj", "{902C5404-27A0-451B-820B-6C0739E82515}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Domain", "Domain", "{3C7D4E50-0D37-4722-9742-935E39FB0C0F}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "API", "API", "{1C447317-D3B9-4CF4-9BB0-C2A938D43805}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infrastructure", "Infrastructure", "{2A506C62-7329-4E62-A636-E8663974BD18}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NudeSolutionsAssingmentXUnitTests", "NudeSolutionAssignment.UnitTests\NudeSolutionsAssingmentXUnitTests.csproj", "{90FFC22E-F44C-41EA-A461-54295B710AC1}"
 EndProject
 Global

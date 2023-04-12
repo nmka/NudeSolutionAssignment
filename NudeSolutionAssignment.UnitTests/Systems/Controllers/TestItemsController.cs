@@ -5,6 +5,7 @@ using NudeSolutionAssignment.Controllers;
 using NudeSolutionAssignment.Services;
 using NudeSolutionAssignment.Models;
 using Microsoft.Extensions.Logging;
+using NudeSolutionsAssingmentXUnitTests.Fixtures;
 
 namespace UnitTests.Systems.Controllers;
 
@@ -31,7 +32,7 @@ public class TestItemsController
 
         var mockItemService = new Mock<IItemService>();
         var mockLogger = new Mock<ILogger<ItemController>>();
-        mockItemService.Setup(service => service.GetAll()).Returns(new List<Item>());
+        mockItemService.Setup(service => service.GetAll()).ReturnsAsync(ItemFixture.GetAll());
         var sut = new ItemController(mockItemService.Object, mockLogger.Object);
 
         var result = (OkObjectResult)await sut.GetAll();
@@ -45,7 +46,7 @@ public class TestItemsController
 
         var mockItemService = new Mock<IItemService>();
         var mockLogger = new Mock<ILogger<ItemController>>();
-        mockItemService.Setup(service => service.GetAll()).Returns(new List<Item>());
+        mockItemService.Setup(service => service.GetAll()).ReturnsAsync(ItemFixture.GetAll());
         var sut = new ItemController(mockItemService.Object, mockLogger.Object);
 
         var result = await sut.GetAll();
@@ -61,10 +62,9 @@ public class TestItemsController
 
         var mockItemService = new Mock<IItemService>();
         var mockLogger = new Mock<ILogger<ItemController>>();
-        mockItemService.Setup(service => service.GetById(1)).Returns(new Item("name", 1, 1));
+        mockItemService.Setup(service => service.GetById(1)).ReturnsAsync(ItemFixture.GetAll().First());
 
         var sut = new ItemController(mockItemService.Object, mockLogger.Object);
-
         var result = await sut.GetById(1);
 
         result.Should().BeOfType<OkObjectResult>();

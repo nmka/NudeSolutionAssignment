@@ -28,8 +28,4 @@
     <ProjectReference Include="..\NudeSolutionAssignment\NudeSolutionAssignment.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Fixture\" />
-  </ItemGroup>
-
 </Project>

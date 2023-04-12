@@ -7,9 +7,11 @@ namespace NudeSolutionAssignment.Services
     {
         private readonly InsuranceContext _dbContext;
 
+
         public CategoryService(InsuranceContext dbContext)
         {
             _dbContext = dbContext;
+     
         }
 
         public void Create(Category category)
