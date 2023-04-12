@@ -31,7 +31,9 @@ code {
     display: inline-block;
     overflow-x: hidden;
 }
-
+.grid {
+    display:grid;
+}
 .clickable {
     cursor: pointer;
 }
