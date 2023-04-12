@@ -12,3 +12,18 @@ code {
   background-color: #1b6ec2;
   border-color: #1861ac;
 }
+
+.insurance-item {
+    list-style-type: none;
+
+}
+
+.insurance-category .name {
+    width: 300px;
+    display: inline-block;
+}
+
+.insurance-item .name {
+    width: 300px;
+    display: inline-block;
+}
