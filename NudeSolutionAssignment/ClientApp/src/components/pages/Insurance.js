@@ -36,16 +36,15 @@ const Insurance = () => {
         });
     }
     const deleteItem = (toDeleteItem) => {
-        let newCategories = [...categories];
-        let targetCategory = newCategories.find(category => category.id === toDeleteItem.categoryId);
-        targetCategory.items = targetCategory.items.filter(item => item.id !== toDeleteItem.id);
-        setCategories([...newCategories]);
 
-        console.log('new',newCategories);
-        console.log('target',targetCategory);
-        //services.insurance.deleteItem(toDeleteItem).then(_ => {
-      
-        //}
+        if (!window.confirm("Are you sure you wanna delete item?")) return;
+
+        services.insurance.deleteItem(toDeleteItem).then(_ => {
+            let newCategories = [...categories];
+            let targetCategory = newCategories.find(category => category.id === toDeleteItem.categoryId);
+            targetCategory.items = targetCategory.items.filter(item => item.id !== toDeleteItem.id);
+            setCategories([...newCategories]);
+        });
     }
 
     return (<main className='insurance'>

@@ -19,8 +19,12 @@ const insuranceService = {
                 return response.data
             })
             .catch((error) => {
-                alert(error)
+                alert(error);
             });
+    },
+
+    deleteItem: (item) => {
+        return api.delete('/items/'+item.id);
     },
 
     getAllCategories: () => {
@@ -29,7 +33,7 @@ const insuranceService = {
                 return response.data
             })
             .catch((error) => {
-                alert(error)
+                alert(error);
             });
     }
 }

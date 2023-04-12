@@ -41,7 +41,16 @@ namespace NudeSolutionAssignment.Controllers
 
         [HttpPut("{id:int}")]
         public void Update(int id, string name, float amount, int categoryId) {
+            throw new NotImplementedException();
+        }
 
+        [HttpDelete("{id:int}")]
+        public async Task<IActionResult> Delete(int id)
+        {
+            var result = await _itemsService.Delete(id);
+
+            if (result) return Ok();
+            return NotFound();
         }
     }
 
