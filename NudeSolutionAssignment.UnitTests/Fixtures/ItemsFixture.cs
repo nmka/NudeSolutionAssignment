@@ -2,7 +2,7 @@
 
 namespace NudeSolutionsAssingmentXUnitTests.Fixtures
 {
-    public static class ItemFixture
+    public static class ItemsFixture
     {
         public static List<Item> GetAll() => new()
         { new Item {Id = 1, Name = "Foo", Value = 100, CategoryId = 1 },

@@ -16,9 +16,9 @@ public class TestItemsController
     {
         //Arrange
 
-        var mockItemService = new Mock<IItemService>();
-        var mockLogger = new Mock<ILogger<ItemController>>();
-        var sut = new ItemController(mockItemService.Object, mockLogger.Object);
+        var mockItemService = new Mock<IItemsService>();
+        var mockLogger = new Mock<ILogger<ItemsController>>();
+        var sut = new ItemsController(mockItemService.Object);
 
         //Act
         var result = (OkObjectResult)await sut.GetAll();
@@ -30,10 +30,9 @@ public class TestItemsController
     public async Task Get_OnSuccess_InvokesItemService()
     {
 
-        var mockItemService = new Mock<IItemService>();
-        var mockLogger = new Mock<ILogger<ItemController>>();
-        mockItemService.Setup(service => service.GetAll()).ReturnsAsync(ItemFixture.GetAll());
-        var sut = new ItemController(mockItemService.Object, mockLogger.Object);
+        var mockItemService = new Mock<IItemsService>();
+        mockItemService.Setup(service => service.GetAll()).ReturnsAsync(ItemsFixture.GetAll());
+        var sut = new ItemsController(mockItemService.Object);
 
         var result = (OkObjectResult)await sut.GetAll();
 
@@ -44,10 +43,9 @@ public class TestItemsController
     public async Task Get_OnSuccess_ReturnsListOfUsers()
     {
 
-        var mockItemService = new Mock<IItemService>();
-        var mockLogger = new Mock<ILogger<ItemController>>();
-        mockItemService.Setup(service => service.GetAll()).ReturnsAsync(ItemFixture.GetAll());
-        var sut = new ItemController(mockItemService.Object, mockLogger.Object);
+        var mockItemService = new Mock<IItemsService>();
+        mockItemService.Setup(service => service.GetAll()).ReturnsAsync(ItemsFixture.GetAll());
+        var sut = new ItemsController(mockItemService.Object);
 
         var result = await sut.GetAll();
 
@@ -60,11 +58,10 @@ public class TestItemsController
     public async Task GetById_OnSuccess_ReturnsUser()
     {
 
-        var mockItemService = new Mock<IItemService>();
-        var mockLogger = new Mock<ILogger<ItemController>>();
-        mockItemService.Setup(service => service.GetById(1)).ReturnsAsync(ItemFixture.GetAll().First());
+        var mockItemService = new Mock<IItemsService>();
+        mockItemService.Setup(service => service.GetById(1)).ReturnsAsync(ItemsFixture.GetAll().First());
 
-        var sut = new ItemController(mockItemService.Object, mockLogger.Object);
+        var sut = new ItemsController(mockItemService.Object);
         var result = await sut.GetById(1);
 
         result.Should().BeOfType<OkObjectResult>();
@@ -75,10 +72,9 @@ public class TestItemsController
     [Fact]
     public async Task GetById_OnNoItemsFound_Returns404()
     {
-        var mockItemService = new Mock<IItemService>();
-        var mockLogger = new Mock<ILogger<ItemController>>();
+        var mockItemService = new Mock<IItemsService>();
 
-        var sut = new ItemController(mockItemService.Object, mockLogger.Object);
+        var sut = new ItemsController(mockItemService.Object);
 
         var result = await sut.GetById(1);
 

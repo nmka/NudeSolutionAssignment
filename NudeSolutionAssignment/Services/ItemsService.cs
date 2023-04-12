@@ -4,16 +4,15 @@ using NudeSolutionAssignment.Persistence;
 
 namespace NudeSolutionAssignment.Services
 {
-    public class ItemService: IItemService
+    public class ItemsService: IItemsService
     {
         private readonly InsuranceContext _dbContext;
-        private readonly ILogger _logger;
-        public ItemService(InsuranceContext dbContext)
+        public ItemsService(InsuranceContext dbContext)
         {
             _dbContext = dbContext;
         }
 
-        public async Task<Item> Create(Item item)
+        public async Task<Item?> Create(Item item)
         {
             _dbContext.Add(item);
             await _dbContext.SaveChangesAsync();
@@ -26,14 +25,14 @@ namespace NudeSolutionAssignment.Services
             return await _dbContext.Items.FindAsync(id);
         }
 
-        public async Task Delete(int id)
+        public async Task<bool> Delete(int id)
         {
             Item? item= await _dbContext.Items.FindAsync(id);
-            if (item is null) return;
+            if (item is null) return false;
 
             _dbContext.Remove(item);
             await _dbContext.SaveChangesAsync();
-            
+            return true;
         }
 
         public async Task<Item?> Update(Item item)

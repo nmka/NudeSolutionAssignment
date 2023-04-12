@@ -7,24 +7,24 @@ namespace NudeSolutionAssignment.Controllers
 {
     [ApiController]
     [Route("[controller]")]
-    public class ItemController : ControllerBase
+    public class ItemsController : ControllerBase
     {
-        private readonly IItemService _itemService;
-        public ItemController(IItemService itemService)
+        private readonly IItemsService _itemsService;
+        public ItemsController(IItemsService itemService)
         {
-            _itemService = itemService;
+            _itemsService = itemService;
         }
 
         [HttpGet]
         public async Task<IActionResult> GetAll()
         {
-            return Ok(await _itemService.GetAll());
+            return Ok(await _itemsService.GetAll());
         }
 
         [HttpGet("{id:int}")]
         public async Task<IActionResult> GetById(int id)
         {
-            Item? item = await _itemService.GetById(id);
+            Item? item = await _itemsService.GetById(id);
 
             if(item == null) return NotFound();
 
@@ -36,7 +36,7 @@ namespace NudeSolutionAssignment.Controllers
         [HttpPost()]
         public async Task<IActionResult> Create(CreateItemRequest request)
         {
-            return Ok(await _itemService.Create(new Item { Name = request.name, CategoryId = request.categoryId, Value = request.value}));
+            return Ok(await _itemsService.Create(new Item { Name = request.name, CategoryId = request.categoryId, Value = request.value}));
         }
 
         [HttpPut("{id:int}")]

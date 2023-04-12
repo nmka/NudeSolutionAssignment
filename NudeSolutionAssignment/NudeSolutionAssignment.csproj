@@ -35,6 +35,7 @@
 
   <ItemGroup>
     <Folder Include="ClientApp\src\api\services\" />
+    <Folder Include="ClientApp\src\components\insurance\" />
     <Folder Include="ClientApp\src\NewFolder\" />
   </ItemGroup>
 

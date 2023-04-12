@@ -4,7 +4,7 @@ import api from "../api";
 const insuranceService = {
 
     createItem: (item) => {
-        return  api.post('/item', item)
+        return api.post('/items', item)
             .then( (response) => {
             })
             .catch((error) => {
@@ -13,7 +13,17 @@ const insuranceService = {
     },
 
     getAllItems: () => {
-        return api.get('/item')
+        return api.get('/items')
+            .then((response) => {
+                return response.data
+            })
+            .catch((error) => {
+                alert(error)
+            });
+    },
+
+    getAllCategories: () => {
+        return api.get('/itemcategories')
             .then((response) => {
                 return response.data
             })

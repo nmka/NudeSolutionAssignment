@@ -2,31 +2,34 @@
 import React, { useState, useEffect } from 'react';
 import services from '../../api/index'
 import InsuranceItemForm from '../InsuranceItemForm';
-import InsuranceItemsList from '../InsuranceItemsList';
+import InsuranceCategory from '../InsuranceCategory';
 
 const Insurance = () => {
 
-    const [items, setItems] = useState(null);
-    const categories = [{ name: 'Electronics', id: 1 }, { name: 'Arts', id: 2 }];
+    const [categories, setCategories] = useState(null);
 
     useEffect(() => {
-        if (items != null) return;
-        services.insuranceService.getAllItems().then(response => {
-            setItems(response);
+        if (categories != null) return;
+        services.insuranceService.getAllCategories().then(response => {
+            setCategories(response);
+            console.log('response',response)
         });
-        
+
     })
 
     const addItem = (item) => {
         services.insuranceService.createItem(item).then(response => {
-            setItems([...items, response]);
+            //setItems([...items, response]);
         })
-        
+
     }
 
     return (<main>
-        <InsuranceItemsList items={items}></InsuranceItemsList>
-        <InsuranceItemForm addItem={addItem} categories={categories}></InsuranceItemForm>
+        
+        {categories != null ? <>
+            {categories.map((category) => <InsuranceCategory key={category.id} category={category}></InsuranceCategory>)}
+            <InsuranceItemForm addItem={addItem} categories={categories}></InsuranceItemForm>
+        </>:<div>Loading...</div>}
     </main>)
 }
 
