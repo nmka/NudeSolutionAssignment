@@ -51,7 +51,7 @@ Other way would be getting it from backend and request everytime from backend af
 i created CategoryValueSum reducer for category object and then using it to create TotalSummedValue reducer. DRY ;) 
 - [x] Persist the data to a data store (SQL, NoSQL, LocalDB, anything is fine).
 
-- Used localDB otherwise i have to setup docker for SQL server... I don't feel like it is important
+- Used SQLLite otherwise i have to setup docker for SQL server... I don't feel like it is important
 
 - [x] Restore the data when the application is restarted.
 
