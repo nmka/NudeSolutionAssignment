@@ -1,3 +1,4 @@
+using Microsoft.AspNetCore.HttpLogging;
 using NudeSolutionAssignment.Modules.Insurance.Repositories;
 using NudeSolutionAssignment.Modules.Insurance.Services;
 using NudeSolutionAssignment.Persistence;
