@@ -5,23 +5,23 @@ using NudeSolutionAssignment.Modules.Insurance.Services;
 using NudeSolutionAssignment.Modules.Insurance.Models;
 
 using Microsoft.Extensions.Logging;
+using NudeSolutionAssignment.Modules.Insurance.Repositories;
 
 namespace NudeSolutionsAssingmentXUnitTests.Insurance.Systems.Services
 {
     public class TestItemService
     {
-        //[Fact]
-        //public async Task GetById_WhenCalled_DbContext()
-        //{
-        //    var mockdbContext = new Mock<InsuranceContext>();
+        [Fact]
+        public async Task GetById_WhenCalled_InvokesRepository()
+        {
+            var mockItemsRepo = new Mock<IItemsRepository>();
+            
+            var sut = new ItemsService(mockItemsRepo.Object);
 
-        //    mockdbContext.Setup(x => x.Items.FindAsync(1).Result).Returns(ItemsFixture.GetAll().Find(e => e.Id == 1) ?? new Item());
-        //    var sut = new CategoriesService(mockdbContext.Object);
+            var result = await sut.GetAll();
 
-        //    var result = await sut.GetAllWithItems();
-
-        //    mockdbContext.Verify(db => db.Items.ToList(), Times.Once);
-        //}
+            mockItemsRepo.Verify(repo => repo.GetAll(), Times.Once);
+        }
 
 
     }
