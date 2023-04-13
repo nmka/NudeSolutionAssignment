@@ -1,4 +1,5 @@
-My name is Nyamjav and this is my first time trying out dotnet core framework or c#. But it felt so familiar to me because i used to write on Java and Micronaut framework. I hope you like what i have done so far.
+My name is Nyamjav and I had blast trying out dotnet core framework and c#. 
+It felt so familiar to me because i used to write on Java and Micronaut framework. I hope you like what i have done so far.
 
 
 # NudeSolutionAssignment
