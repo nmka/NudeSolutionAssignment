@@ -1,10 +1,9 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Logging;
+﻿using FluentAssertions;
+using Microsoft.AspNetCore.Mvc;
 using Moq;
 using NudeSolutionAssignment.Modules.Insurance.Controllers;
 using NudeSolutionAssignment.Modules.Insurance.Models;
 using NudeSolutionAssignment.Modules.Insurance.Services;
-using FluentAssertions;
 using NudeSolutionsAssingmentXUnitTests.Insurance.Fixtures;
 
 namespace NudeSolutionsAssingmentXUnitTests.Insurance.Systems.Controllers

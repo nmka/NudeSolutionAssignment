@@ -4,7 +4,7 @@ import api from "../api";
 const insuranceService = {
 
     createItem: (item) => {
-        return api.post('/items', item)
+        return api.post('/items', { Name: item.name, CategoryId: item.categoryId, Value: item.value })
             .then((response) => {
                 return response.data
             })

@@ -2,11 +2,10 @@ using FluentAssertions;
 using Microsoft.AspNetCore.Mvc;
 using Moq;
 using NudeSolutionAssignment.Modules.Insurance.Controllers;
-using NudeSolutionAssignment.Modules.Insurance.Services;
-using NudeSolutionAssignment.Modules.Insurance.Models;
-using Microsoft.Extensions.Logging;
-using NudeSolutionsAssingmentXUnitTests.Insurance.Fixtures;
 using NudeSolutionAssignment.Modules.Insurance.Controllers.DTO;
+using NudeSolutionAssignment.Modules.Insurance.Models;
+using NudeSolutionAssignment.Modules.Insurance.Services;
+using NudeSolutionsAssingmentXUnitTests.Insurance.Fixtures;
 
 namespace NudeSolutionsAssingmentXUnitTests.Insurance.Systems.Controllers;
 
@@ -18,7 +17,6 @@ public class TestItemsController
         //Arrange
 
         var mockItemService = new Mock<IItemsService>();
-        var mockLogger = new Mock<ILogger<ItemsController>>();
         var sut = new ItemsController(mockItemService.Object);
 
         //Act
@@ -93,6 +91,8 @@ public class TestItemsController
 
         var sut = new ItemsController(mockItemService.Object);
 
-        var result = await sut.Create(new CreateItemRequest("Name", 1, 3) );
+        var result = await sut.Create(new CreateItemRequest(name, id, amount));
+
+        result.Should().BeOfType<OkObjectResult>();
     }
 }

@@ -1,7 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
-using NudeSolutionAssignment.Modules.Insurance.Models;
+﻿using NudeSolutionAssignment.Modules.Insurance.Models;
 using NudeSolutionAssignment.Modules.Insurance.Repositories;
-using NudeSolutionAssignment.Persistence;
 
 namespace NudeSolutionAssignment.Modules.Insurance.Services
 {
@@ -13,7 +11,7 @@ namespace NudeSolutionAssignment.Modules.Insurance.Services
         public CategoriesService(ICategoriesRepository categoriesRepository)
         {
             _categoriesRepository = categoriesRepository;
-     
+
         }
         public async Task<Category?> GetById(int id)
         {

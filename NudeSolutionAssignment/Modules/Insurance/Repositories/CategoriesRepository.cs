@@ -4,7 +4,7 @@ using NudeSolutionAssignment.Persistence;
 
 namespace NudeSolutionAssignment.Modules.Insurance.Repositories
 {
-    public class CategoriesRepository: ICategoriesRepository
+    public class CategoriesRepository : ICategoriesRepository
     {
         private readonly InsuranceContext _dbContext;
         public CategoriesRepository(InsuranceContext dbContext)

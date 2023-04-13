@@ -1,8 +1,5 @@
-﻿using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using NudeSolutionAssignment.Modules.Insurance.Services;
-using NudeSolutionAssignment.Modules.Insurance.Models;
-using NudeSolutionAssignment.Modules.Insurance.Controllers.DTO;
 
 namespace NudeSolutionAssignment.Modules.Insurance.Controllers
 {

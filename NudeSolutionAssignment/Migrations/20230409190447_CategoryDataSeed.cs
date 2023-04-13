@@ -13,7 +13,7 @@ namespace NudeSolutionAssignment.Migrations
             migrationBuilder.InsertData(
                 table: "Categories",
                 columns: new[] { "Name" },
-                values: new object[] { "Electronics"});
+                values: new object[] { "Electronics" });
             migrationBuilder.InsertData(
                 table: "Categories",
                 columns: new[] { "Name" },

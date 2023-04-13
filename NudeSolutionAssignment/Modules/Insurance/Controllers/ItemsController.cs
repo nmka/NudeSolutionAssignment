@@ -26,7 +26,7 @@ namespace NudeSolutionAssignment.Modules.Insurance.Controllers
         {
             Item? item = await _itemsService.GetById(id);
 
-            if(item == null) return NotFound();
+            if (item == null) return NotFound();
 
             return Ok(item);
         }
@@ -36,11 +36,12 @@ namespace NudeSolutionAssignment.Modules.Insurance.Controllers
         [HttpPost()]
         public async Task<IActionResult> Create(CreateItemRequest request)
         {
-            return Ok(await _itemsService.Create(new Item { Name = request.name, CategoryId = request.categoryId, Value = request.value}));
+            return Ok(await _itemsService.Create(new Item { Name = request.Name, CategoryId = request.CategoryId, Value = request.Value }));
         }
 
         [HttpPut("{id:int}")]
-        public void Update(int id, string name, float amount, int categoryId) {
+        public void Update(int id, string name, float amount, int categoryId)
+        {
             throw new NotImplementedException();
         }
 
@@ -53,8 +54,8 @@ namespace NudeSolutionAssignment.Modules.Insurance.Controllers
             return NotFound();
         }
 
-       
+
     }
 
-  
+
 }

@@ -1,11 +1,8 @@
 ﻿namespace NudeSolutionAssignment.Persistence;
 
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Hosting;
 using NudeSolutionAssignment.Modules.Insurance.Models;
 using System;
-using System.Collections.Generic;
-using System.Reflection.Metadata;
 
 public class InsuranceContext : DbContext
 {

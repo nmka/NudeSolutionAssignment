@@ -1,5 +1,3 @@
-using Microsoft.EntityFrameworkCore;
-using NudeSolutionAssignment.Modules.Insurance.Controllers;
 using NudeSolutionAssignment.Modules.Insurance.Repositories;
 using NudeSolutionAssignment.Modules.Insurance.Services;
 using NudeSolutionAssignment.Persistence;

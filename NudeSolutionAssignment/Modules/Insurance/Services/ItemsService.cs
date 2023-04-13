@@ -1,11 +1,9 @@
-﻿using Microsoft.EntityFrameworkCore;
-using NudeSolutionAssignment.Modules.Insurance.Models;
+﻿using NudeSolutionAssignment.Modules.Insurance.Models;
 using NudeSolutionAssignment.Modules.Insurance.Repositories;
-using NudeSolutionAssignment.Persistence;
 
 namespace NudeSolutionAssignment.Modules.Insurance.Services
 {
-    public class ItemsService: IItemsService
+    public class ItemsService : IItemsService
     {
         private readonly IItemsRepository _itemsRepository;
         public ItemsService(IItemsRepository itemsRepository)
