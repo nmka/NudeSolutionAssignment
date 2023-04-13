@@ -25,7 +25,9 @@ I builth it using Visual Studio 2022
 - Done. I had two choise for creating endpoints. `/categories/1/items/3` or `/items/3` 
 I chose unnested API endpoint because items have primary keys and so i don't need to provide category idea when i delete item.
 Sometimes nested API endpoints makes sense in some situation but on this task i want things to be simple.
-
+  Or 
+ Use swagger to see API
+`https://localhost:7077/swagger/index.html`
 - [x] Display all items in a list, which is grouped and sorted by category.
 
 - I queried categories with items as its property. So from api its comes like `categories.items`. This way makes sense for this task because requirement was to items to be grouped and sorted by category.
@@ -70,7 +72,7 @@ As i said before its my first time setting up project on dotnet. I tried to foll
 
 - [ ] Understanding of the single responsibility principle, and other SOLID principles.
 
-I felt like this assessment was too simple to demonstrate SOLID
+I tried to used SOLID principles where it apply 
 
 - Single responsibility principle: All services repositories and controllers have single responsiblity
 - Open–closed principle: Well, they are open to Extension ;)
