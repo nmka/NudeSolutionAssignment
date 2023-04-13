@@ -95,7 +95,10 @@ I tried to used SOLID principles where it apply
 - [ ] Understanding of how to write testable code.
 
 - I demonstrated it by testing all services and controllers.
- 
+- Added CI\CD for testing on github
+
 - [ ] Maintainability of the application if new features were to be added in the future.
 
-- Separated modules by business domain
+- Separated modules by business domain so it would be easier to expand or add new modules and things doesn't get coupled.
+- Programmed to interfaces not implementations
+
