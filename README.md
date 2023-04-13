@@ -2,7 +2,16 @@ My name is Nyamjav and I had blast trying out dotnet core framework and c#.
 It felt so familiar to me because i used to write on Java and Micronaut framework. I hope you like what i have done so far.
 
 
-# NudeSolutionAssignment
+## Getting started
+
+Run migration before start because initial `category` data is seeded by migration.
+
+I believe command would be this
+```
+dotnet ef database update
+```
+
+# NudeSolutionAssignment Requirements
 - [x] Build/Run with Visual Studio 2019 or 2022, or the .NET CLI.
 
 I builth it using Visual Studio 2022
@@ -50,7 +59,7 @@ i created CategoryValueSum reducer for category object and then using it to crea
 
 
 
-Considerations and Rating
+# Considerations and Rating
 
 - [ ] General code quality and coding style.
 
