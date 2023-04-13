@@ -29,6 +29,7 @@ namespace NudeSolutionAssignment.Modules.Insurance.Controllers
             return Ok(item);
         }
 
+        [HttpPost]
         public Task<IActionResult> Create()
         {
             throw new NotImplementedException();

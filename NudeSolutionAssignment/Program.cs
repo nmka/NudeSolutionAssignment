@@ -15,8 +15,13 @@ builder.Services.AddScoped<ICategoriesService, CategoriesService>();
 builder.Services.AddScoped<IItemsRepository, ItemsRepository>();
 builder.Services.AddScoped<ICategoriesRepository, CategoriesRepository>();
 
-var app = builder.Build();
+// Swagger
+builder.Services.AddEndpointsApiExplorer();
+builder.Services.AddSwaggerGen();
 
+
+var app = builder.Build();
+app.UseSwaggerUI();
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())
 {
@@ -24,6 +29,7 @@ if (!app.Environment.IsDevelopment())
     app.UseHsts();
 }
 
+app.UseSwagger(x => x.SerializeAsV2 = true);
 app.UseHttpsRedirection();
 app.UseStaticFiles();
 app.UseRouting();
