@@ -18,7 +18,11 @@ builder.Services.AddScoped<ICategoriesRepository, CategoriesRepository>();
 // Swagger
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
-
+// Logging
+builder.Services.AddHttpLogging(httpLogging =>
+{
+    httpLogging.LoggingFields = HttpLoggingFields.All;
+});
 
 var app = builder.Build();
 app.UseSwaggerUI();
