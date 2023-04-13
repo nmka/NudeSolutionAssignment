@@ -2,6 +2,7 @@
 using NudeSolutionAssignment.Modules.Insurance.Models;
 using NudeSolutionAssignment.Persistence;
 using NudeSolutionAssignment.Modules.Insurance.Services;
+using NudeSolutionAssignment.Modules.Insurance.Repositories;
 
 using System;
 using System.Collections.Generic;
@@ -13,18 +14,17 @@ namespace NudeSolutionsAssingmentXUnitTests.Insurance.Systems.Services
 {
     public class TestCategoriesService
     {
-        //[Fact]
-        //public async Task GetById_WhenCalled_DbContext()
-        //{
-        //    var mockdbContext = new Mock<InsuranceContext>();
+        [Fact]
+        public async Task GetById_WhenCalled_InvokesRepository()
+        {
+            var mockCategoryRepo = new Mock<ICategoriesRepository>();
+;
+            var sut = new CategoriesService(mockCategoryRepo.Object);
 
-        //    mockdbContext.Setup(x => x.Categories.FindAsync(1).Result).Returns(CategoriesFixture.GetAll().Find(e => e.Id == 1) ?? new Category());
-        //    var sut = new CategoriesService(mockdbContext.Object);
+            var result = await sut.GetAllWithItems();
 
-        //    var result = await sut.GetAllWithItems();
-
-        //    mockdbContext.Verify(db => db.Items.ToList(), Times.Once);
-        //}
+            mockCategoryRepo.Verify(repo => repo.GetAllWithItems(), Times.Once);
+        }
 
 
     }

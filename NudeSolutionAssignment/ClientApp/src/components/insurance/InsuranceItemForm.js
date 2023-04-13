@@ -45,9 +45,6 @@ const InsuranceItemForm = ({addItem, categories}) => {
             <AiFillCaretUp className='clickable' onClick={increment} />
             <AiFillCaretDown className='clickable' onClick={decrement} />
         </div>
-        
-        
-
         <select
             className='category-input'
             value={categoryId}

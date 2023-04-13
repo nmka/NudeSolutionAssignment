@@ -1,27 +1,28 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using NudeSolutionAssignment.Modules.Insurance.Models;
+using NudeSolutionAssignment.Modules.Insurance.Repositories;
 using NudeSolutionAssignment.Persistence;
 
 namespace NudeSolutionAssignment.Modules.Insurance.Services
 {
     public class CategoriesService : ICategoriesService
     {
-        private readonly InsuranceContext _dbContext;
+        private readonly ICategoriesRepository _categoriesRepository;
 
 
-        public CategoriesService(InsuranceContext dbContext)
+        public CategoriesService(ICategoriesRepository categoriesRepository)
         {
-            _dbContext = dbContext;
+            _categoriesRepository = categoriesRepository;
      
         }
         public async Task<Category?> GetById(int id)
         {
-            return await _dbContext.Categories.FindAsync(id);
+            return await _categoriesRepository.GetById(id);
         }
 
-        public Task<List<Category>> GetAllWithItems()
+        public async Task<List<Category>> GetAllWithItems()
         {
-            return _dbContext.Categories.Include("Items").ToListAsync();
+            return await _categoriesRepository.GetAllWithItems();
         }
     }
 }

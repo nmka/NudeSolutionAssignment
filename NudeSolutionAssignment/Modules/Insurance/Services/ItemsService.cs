@@ -1,54 +1,41 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using NudeSolutionAssignment.Modules.Insurance.Models;
+using NudeSolutionAssignment.Modules.Insurance.Repositories;
 using NudeSolutionAssignment.Persistence;
 
 namespace NudeSolutionAssignment.Modules.Insurance.Services
 {
     public class ItemsService: IItemsService
     {
-        private readonly InsuranceContext _dbContext;
-        public ItemsService(InsuranceContext dbContext)
+        private readonly IItemsRepository _itemsRepository;
+        public ItemsService(IItemsRepository itemsRepository)
         {
-            _dbContext = dbContext;
+            _itemsRepository = itemsRepository;
         }
 
         public async Task<Item?> Create(Item item)
         {
-            _dbContext.Add(item);
-            await _dbContext.SaveChangesAsync();
-
-            return item;
+            return await _itemsRepository.Create(item);
         }
 
         public async Task<Item?> GetById(int id)
         {
-            return await _dbContext.Items.FindAsync(id);
+            return await _itemsRepository.GetById(id);
         }
 
         public async Task<bool> Delete(int id)
         {
-            Item? item= await _dbContext.Items.FindAsync(id);
-            if (item is null) return false;
-
-            _dbContext.Remove(item);
-            await _dbContext.SaveChangesAsync();
-            return true;
+            return await _itemsRepository.Delete(id);
         }
 
         public async Task<Item?> Update(Item item)
         {
-            var isExists = _dbContext.Items.Any(x => x.Id == item.Id);
-            if (!isExists) return null;
-
-            _dbContext.Update(item);
-            await _dbContext.SaveChangesAsync();
-
-            return item;
+            return await _itemsRepository.Update(item);
         }
 
         public async Task<List<Item>> GetAll()
         {
-            return await _dbContext.Items.ToListAsync();
+            return await _itemsRepository.GetAll();
         }
     }
 }

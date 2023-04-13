@@ -1,5 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 using NudeSolutionAssignment.Modules.Insurance.Controllers;
+using NudeSolutionAssignment.Modules.Insurance.Repositories;
 using NudeSolutionAssignment.Modules.Insurance.Services;
 using NudeSolutionAssignment.Persistence;
 
@@ -12,6 +13,9 @@ builder.Services.AddDbContext<InsuranceContext>();
 
 builder.Services.AddScoped<IItemsService, ItemsService>();
 builder.Services.AddScoped<ICategoriesService, CategoriesService>();
+
+builder.Services.AddScoped<IItemsRepository, ItemsRepository>();
+builder.Services.AddScoped<ICategoriesRepository, CategoriesRepository>();
 
 var app = builder.Build();
 
