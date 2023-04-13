@@ -14,7 +14,7 @@ dotnet ef database update
 # NudeSolutionAssignment Requirements
 - [x] Build/Run with Visual Studio 2019 or 2022, or the .NET CLI.
 
-I builth it using Visual Studio 2022
+I built it using Visual Studio 2022
 - [x] Properly render in Chrome (latest version).
 
 ![nude](https://user-images.githubusercontent.com/1495713/231646429-9665254c-2625-4388-8fc1-838fc8ae0c23.png)
