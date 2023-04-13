@@ -1,3 +1,6 @@
+My name is Nyamjav and this is my first time trying out dotnet core framework or c#. But it felt so familiar to me because i used to write on Java and Micronaut framework. I hope you like what i have done so far.
+
+
 # NudeSolutionAssignment
 - [x] Build/Run with Visual Studio 2019 or 2022, or the .NET CLI.
 
@@ -41,3 +44,46 @@ i created CategoryValueSum reducer for category object and then using it to crea
 - [x] Restore the data when the application is restarted.
 
 - Done
+
+
+
+Considerations and Rating
+
+- [ ] General code quality and coding style.
+
+As i said before its my first time setting up project on dotnet. I tried to follow official documentation from Microsoft https://learn.microsoft.com/en-us/dotnet/fundamentals/ for coding style and convention
+
+- [ ] Total effort and polish applied to the application for the requirements that are scoped above.
+
+- [ ] Understanding of design patterns supported by .NET Core, such as dependency injection.
+
+- implemented dependency injection and log rotation. Not sure what other design patterns to implement. Task was simple but i tried to write testable code.
+
+- [ ] Understanding of multi-tiered architectures and separation of concerns.
+
+- Used Controller, Service, Repository pattern
+
+* Controller: manages rest interface to business logic
+* Service: manages business logic
+* Repository: abstraction to database access.
+
+- [ ] Understanding of the single responsibility principle, and other SOLID principles.
+
+I felt like this assessment was too simple to demonstrate SOLID
+
+- Single responsibility principle: All services repositories and controllers have single responsiblity
+- Open–closed principle: Well, they are open to Extension ;)
+- Liskov substitution principle: 
+- Interface segregation principle: All classes that fully implemented its interface 
+- Dependency inversion principle: Controllers, Services and Respositories calling each other by interfaces
+
+- [ ] Understanding of SPA concepts.
+- To demonstrate I created single axios instance for fetching API 
+
+- [ ] Understanding of how to write testable code.
+
+- I demonstrated it by testing all services and controllers.
+ 
+- [ ] Maintainability of the application if new features were to be added in the future.
+
+- Separated modules by business domain
