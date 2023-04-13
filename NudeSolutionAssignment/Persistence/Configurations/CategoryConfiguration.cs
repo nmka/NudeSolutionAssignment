@@ -2,7 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using Microsoft.Extensions.Hosting;
-using NudeSolutionAssignment.Models;
+using NudeSolutionAssignment.Modules.Insurance.Models;
 using System.Reflection.Emit;
 using System.Xml.Linq;
 

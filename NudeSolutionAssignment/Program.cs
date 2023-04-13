@@ -1,7 +1,7 @@
 using Microsoft.EntityFrameworkCore;
-using NudeSolutionAssignment.Controllers;
+using NudeSolutionAssignment.Modules.Insurance.Controllers;
+using NudeSolutionAssignment.Modules.Insurance.Services;
 using NudeSolutionAssignment.Persistence;
-using NudeSolutionAssignment.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 

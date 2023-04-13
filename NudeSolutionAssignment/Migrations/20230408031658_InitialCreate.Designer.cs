@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
-using NudeSolutionAssignment.Models;
+using NudeSolutionAssignment.Modules.Insurance.Models;
 using NudeSolutionAssignment.Persistence;
 using System.Reflection.Metadata;
 
